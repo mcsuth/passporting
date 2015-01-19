@@ -1,0 +1,24 @@
+<html ng-app="myApp">
+  <head>
+    <script type="text/javascript" src="node_modules/angular/angular.js"></script>
+    <script type="text/javascript" src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="angularapp.js"></script>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  </head>
+  <body ng-controller="controllerOne as one">
+    <div class="col-6-md col-sm-offset-1">
+      <ol>
+        <li ng-repeat="item in one.itemlist">
+          {{item.task}} <a ng-click="one.removeItemToDo(item)">x</a>
+        </li>
+      </ol>
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label for="itemtext">Item</label>
+          <input type="text" id="itemtext" ng-model="itemTextModel">
+          <button type="submit" ng-disabled="!itemTextModel" ng-click="one.enterItemToDo(itemTextModel); itemTextModel=''">Go</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
